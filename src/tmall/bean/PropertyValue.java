@@ -6,9 +6,19 @@ public class PropertyValue {
 	private Product product;
 	private Property property;
 	private int id;
+
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getValue() {
 		return value;
 	}
+	
 	public void setValue(String value) {
 		this.value = value;
 	}
@@ -24,10 +34,5 @@ public class PropertyValue {
 	public void setProperty(Property property) {
 		this.property = property;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 }

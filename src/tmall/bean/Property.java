@@ -6,6 +6,14 @@ public class Property {
 	private Category category;
 	private int id;
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName(){
 		return name;
 	}

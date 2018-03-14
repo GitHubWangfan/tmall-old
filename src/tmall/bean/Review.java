@@ -9,6 +9,14 @@ public class Review {
 	private User user;
 	private Product product;
 	private int id;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -33,10 +41,5 @@ public class Review {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 }

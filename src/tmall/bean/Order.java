@@ -11,8 +11,8 @@ public class Order {
 	private String receiver;
 	private String mobile;
 	private String userMessage;
-	private Date createData;
-	private Date payData;
+	private Date createDate;
+	private Date payDate;
 	private Date deliveryDate;
 	private Date confirmDate;
 	private User user;
@@ -22,8 +22,8 @@ public class Order {
 	private int totalNumber;
 	private String status;
 	
-	public String getStatus(){
-		String desc = "未知";
+	public String getStatusDesc(){
+		String desc ="未知";
         switch(status){
 //      case OrderDAO.waitPay:
 //          desc="待付款";
@@ -49,11 +49,11 @@ public class Order {
 		return desc;
 	}
 	
-	public String getOrderCode() {
-		return orderCode;
+	public int getId() {
+		return id;
 	}
-	public void setOrderCode(String orderCode) {
-		this.orderCode = orderCode;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getAddress() {
 		return address;
@@ -67,12 +67,7 @@ public class Order {
 	public void setPost(String post) {
 		this.post = post;
 	}
-	public String getReceiver() {
-		return receiver;
-	}
-	public void setReceiver(String receiver) {
-		this.receiver = receiver;
-	}
+
 	public String getMobile() {
 		return mobile;
 	}
@@ -85,17 +80,17 @@ public class Order {
 	public void setUserMessage(String userMessage) {
 		this.userMessage = userMessage;
 	}
-	public Date getCreateData() {
-		return createData;
+	public Date getCreateDate() {
+		return createDate;
 	}
-	public void setCreateData(Date createData) {
-		this.createData = createData;
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
-	public Date getPayData() {
-		return payData;
+	public Date getPayDate() {
+		return payDate;
 	}
-	public void setPayData(Date payData) {
-		this.payData = payData;
+	public void setPayDate(Date payDate) {
+		this.payDate = payDate;
 	}
 	public Date getDeliveryDate() {
 		return deliveryDate;
@@ -109,18 +104,28 @@ public class Order {
 	public void setConfirmDate(Date confirmDate) {
 		this.confirmDate = confirmDate;
 	}
+	public String getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
+	}
+	
+	public String getOrderCode() {
+		return orderCode;
+	}
+
+	public void setOrderCode(String orderCode) {
+		this.orderCode = orderCode;
+	}
+
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public List<OrderItem> getOrderItems() {
 		return orderItems;
 	}
@@ -133,6 +138,14 @@ public class Order {
 	public void setTotal(float total) {
 		this.total = total;
 	}
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public int getTotalNumber() {
 		return totalNumber;
 	}

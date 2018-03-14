@@ -18,7 +18,7 @@ public class Product {
 	private List<ProductImage> productSingleImages;//这个是干嘛用的？单个产品图片集合
 	private List<ProductImage> productDetailImages;
 	private int reviewCount;
-	private int sailCount;
+	private int saleCount;
 	
 	public String getName(){
 		return name;
@@ -36,19 +36,19 @@ public class Product {
 		this.subTitle = subTitle;
 	}
 	
-	public Float getOriginalPrice(){
+	public float getOriginalPrice(){
 		return originalPrice;
 	}
 	
-	public void setOriginalPrice(Float orignalPrice){
+	public void setOriginalPrice(float orignalPrice){
 		this.originalPrice = originalPrice;
 	}
 	
-	public Float getPromotePrice(){
+	public float getPromotePrice(){
 		return promotePrice;
 	}
 	
-	public void setPromotePrice(Float promotePrice){
+	public void setPromotePrice(float promotePrice){
 		this.promotePrice = promotePrice;
 	}
 	
@@ -98,8 +98,8 @@ public class Product {
 		return productImages;
 	}
 	
-	public void setProductImages(ProductImage productImages){
-		this.productImages = this.productImages;
+	public void setProductImages(List<ProductImage> productImages){
+		this.productImages = productImages;
 	}
 	
 	public List<ProductImage> getProductSingleImages(){
@@ -126,11 +126,11 @@ public class Product {
 		this.reviewCount = reviewCount;
 	}
 	
-	public int getSailCount(){
-		return sailCount;
+	public int getSaleCount(){
+		return saleCount;
 	}
 	
-	public void setSailCount(int sailcount){
-		this.sailCount = sailcount;
+	public void setSaleCount(int saleCount){
+		this.saleCount = saleCount;
 	}
 }
