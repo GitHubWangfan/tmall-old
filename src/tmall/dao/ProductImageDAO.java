@@ -14,14 +14,14 @@ import tmall.util.DBUtil;
 
 public class ProductImageDAO {
 
-	public static final String	type_single = "type_single";
+	public static final String type_single = "type_single";
 	public static final String type_detail = "type_detail";
 	
 	public int getTotal(){
 		
 		int total = 0;
 		try(Connection c = DBUtil.getConnection(); Statement s = c.createStatement();){
-			String sql = "select count(*) from productImage";
+			String sql = "select count(*) from ProductImage";
 			ResultSet rs = s.executeQuery(sql);
 			while(rs.next()){
 				total = rs.getInt(1);
@@ -34,11 +34,19 @@ public class ProductImageDAO {
 		return total;
 	}
 	
-	public void add(ProductImage  bean){
+	public void add(ProductImage bean){
 		
-		String sql = "insert into productImage values(null, ?, ?)";
+		String sql = "insert into ProductImage values(null, ?, ?)";
 		try(Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);){
-			
+			ps.setInt(1, bean.getProduct().getId());
+            ps.setString(2, bean.getType());
+            ps.execute();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                bean.setId(id);
+            }
 		} catch (SQLException e){
 			e.printStackTrace();
 		}
@@ -51,7 +59,7 @@ public class ProductImageDAO {
 	public void delete(int id){
 		try(Connection c = DBUtil.getConnection(); Statement s = c.createStatement();){
 			
-			String sql = "delete * from productImage where id = " + id;
+			String sql = "delete from ProductImage where id = " + id;
 			s.execute(sql);
 		} catch(SQLException e){
 			e.printStackTrace();
@@ -61,7 +69,7 @@ public class ProductImageDAO {
 	public ProductImage get(int id){
 		ProductImage bean = new ProductImage();
 		try(Connection c = DBUtil.getConnection();Statement s = c.createStatement();){
-			String sql = "select * from productImage where id = " + id;
+			String sql = "select * from ProductImage where id = " + id;
 			ResultSet rs = s.executeQuery(sql);
 			if(rs.next()){
 				int pid = rs.getInt("pid");
@@ -84,7 +92,7 @@ public class ProductImageDAO {
 	public List<ProductImage> list(Product p, String type, int start, int count){
 		List<ProductImage> beans = new ArrayList<>();
 		
-		String sql = "select * from productImage where pid = ? and type =? order by id desc limit ?, ?";
+		String sql = "select * from ProductImage where pid = ? and type =? order by id desc limit ?, ?";
 		try(Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);){
 			ps.setInt(1, p.getId());
 			ps.setString(2, type);

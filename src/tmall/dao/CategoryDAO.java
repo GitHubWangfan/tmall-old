@@ -18,7 +18,7 @@ public class CategoryDAO {
 		
 		try(Connection c = DBUtil.getConnection(); Statement s = c.createStatement(); ){
 			
-			String sql = "select count(*) from Categoty";
+			String sql = "select count(*) from Category";
 			
 			ResultSet rs = s.executeQuery(sql);
 			while(rs.next()){
@@ -34,7 +34,7 @@ public class CategoryDAO {
 	
 	public void add(Category bean){
 		
-		 String sql = "insert into catagory values(null,?)";
+		 String sql = "insert into category values(null,?)";
 		 
 		 try(Connection c = DBUtil.getConnection(); PreparedStatement ps = c.prepareStatement(sql);){
 			 
@@ -67,11 +67,13 @@ public class CategoryDAO {
 		}
 	}
 	
+	Object object = new Object();
+	
 	public void delete(int id){
 		
 		try(Connection c = DBUtil.getConnection(); Statement s = c.createStatement();){
 			
-			String sql = "delete from category where id = " + id;
+			String sql = "delete from Category where id = " + id;
 			
 			s.execute(sql);
 			
